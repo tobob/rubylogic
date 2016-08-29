@@ -20,5 +20,4 @@ example
 
 ```
 ReadingService.fetch(x, {email: "sample@mail.com"})
-
 ```
