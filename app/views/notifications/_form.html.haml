@@ -1,0 +1,10 @@
+.row
+  .col-sm-8
+    = simple_form_for(@notification, url: notifications_path, html: { class: 'form-horizontal' }) do |f|
+      = f.error_notification
+      .inputs
+        = f.input :description
+        = f.input :category, prompt: 'Please select a category'
+        = f.input :email
+      .actions
+        = f.button :submit
