@@ -1,0 +1,24 @@
+pl:
+  simple_form:
+    "yes": 'Tak'
+    "no": 'Nie'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Prosze sprawdz problemy ponizej"
+    prompts:
+      notification: 
+        category: "Prosze wybierz kategorie"
+    labels:
+      notification:
+        description: 'Opis'
+        category: 'Kategoria'
+        email: 'Adres email'
+  helpers:
+    submit:
+      notification:
+        create: "Wyslij zgloszenie"
