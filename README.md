@@ -1,4 +1,4 @@
-== How to prepare database
+## How to prepare database
 
 ```
 bundle install
@@ -6,7 +6,7 @@ rake db:create
 rake db:migrate
 ```
 
-== Main form is accesible under root path
+## Main form is accesible under root path
 
 ```
 localhost:3000
@@ -14,7 +14,7 @@ localhost:3000
 
 unless you will change port binding
 
-== Service that fetch N last unread Notifications is under name ReadingService with fetch method
+## Service that fetch N last unread Notifications is under name ReadingService with fetch method
 
 example
 
