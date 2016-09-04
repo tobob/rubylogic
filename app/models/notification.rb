@@ -9,22 +9,12 @@ class Notification < ActiveRecord::Base
   private
 
   def set_cost_and_implementation
-    case self.category
-    when "accident"
-      if Time.now.hour < 9 || Time.now.hour >= 17 
-        self.cost = 100
-      else
-        self.cost = 50
-      end
-      self.implementation = 4.hours.from_now
-    when "damage"
-      self.cost = 10
-      self.implementation = 1.day.from_now
-    when "fault"
-      self.cost = 1
-      self.implementation = 3.day.from_now
-    else
-      raise "Wrong category"
-    end
+    proc_hash ={
+      "accident" => Proc.new { |_| self.cost = (Time.now.hour < 9 || Time.now.hour >= 17 ? 100 : 50); self.implementation = 4.hours.from_now },
+      "damage" => Proc.new { |_| self.cost = 10; self.implementation = 1.day.from_now },
+      "fault" => Proc.new {|_| self.cost = 1; self.implementation = 3.day.from_now }
+    }
+    method = proc_hash[self.category]
+    method.call if method
   end
 end
